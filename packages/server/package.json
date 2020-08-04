@@ -5,12 +5,16 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "start": "ts-node-dev -r tsconfig-paths/register --no-notify --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "start": "tsnd -r tsconfig-paths/register --no-notify --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
     "test": "jest"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.21.2",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",

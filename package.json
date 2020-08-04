@@ -11,6 +11,8 @@
   "author": "azagatti <andre.zagatti1@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start:web": "yarn workspace @proffy/web start",
+    "start:server": "yarn workspace @proffy/server start",
     "test": "jest",
     "test:coverage": "jest --coverage --watchAll=false",
     "test:watch": "jest --watch"
