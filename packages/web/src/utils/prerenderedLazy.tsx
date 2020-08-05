@@ -14,7 +14,10 @@ const prefetchLazy = (LazyComponent: any) => {
 export const prerenderedLazy = (dynamicImport: DynamicImport) => {
   const LazyComponent = React.lazy(dynamicImport);
   return React.memo(props => (
-    <PrerenderedComponent live={prefetchLazy(LazyComponent)}>
+    <PrerenderedComponent
+      style={{ overflowX: 'hidden' }}
+      live={prefetchLazy(LazyComponent)}
+    >
       <LazyComponent {...props} />
     </PrerenderedComponent>
   ));
