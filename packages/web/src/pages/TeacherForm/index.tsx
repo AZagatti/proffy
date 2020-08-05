@@ -88,7 +88,7 @@ const TeacherForm: React.FC = () => {
         alert('Erro no cadastro');
       }
     },
-    [values, scheduleItems],
+    [values, scheduleItems, history],
   );
 
   return (

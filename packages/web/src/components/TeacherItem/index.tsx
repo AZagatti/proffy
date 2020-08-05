@@ -1,40 +1,59 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import api from '@proffy/axios-config';
 
 import whatsappIcon from '@assets/images/icons/whatsapp.svg';
 
 import { Container } from './styles';
 
-const TeacherItem: React.FC = () => {
+export interface Teacher {
+  id: number;
+  name: string;
+  bio: string;
+  cost: number;
+  avatar: string;
+  subject: string;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  const createNewConnection = useCallback(async () => {
+    try {
+      await api.post('connections', { user_id: teacher.id });
+    } catch (err) {
+      console.log(err);
+    }
+  }, [teacher.id]);
+
   return (
     <Container>
       <header>
-        <img
-          src="https://avatars1.githubusercontent.com/u/40201172?s=460&u=adaf68194a331e5c46f4213f1ff4a5a4337c5095&v=4"
-          alt="azagatti"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>André Zagatti</strong>
-          <span>Química</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta das melhores tecnologias de química avançada.
-        <br />
-        <br />
-        Apaixonado por explodir coisas em laboratório e por mudar a vida das
-        pessoas através de experiências
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora:
-          <strong>R$ 80,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a
+          href={`https://wa.me/${teacher.whatsapp}`}
+          target="_blank"
+          rel="noreferrer"
+          onClick={createNewConnection}
+        >
           <img src={whatsappIcon} alt="Whatsapp" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </Container>
   );
