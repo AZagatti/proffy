@@ -18,7 +18,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/azagatti/proffy?style=plastic">
   </a>
 
-  <img alt="License" src="https://img.shields.io/github/license/azagatti/ecoleta?style=plastic">
+  <img alt="License" src="https://img.shields.io/github/license/azagatti/proffy?style=plastic">
 
   <a href="https://app.codacy.com/manual/AZagatti/proffy/dashboard">
     <img alt="Code Quality" src="https://img.shields.io/codacy/grade/386439d7c95546c286c4c6ba16fcd1ae?style=plastic">
@@ -65,8 +65,8 @@ The mobile application is where people select what type of waste they want to de
 <br/>
 Available for Android and iOS.
 
-  <img width="250" src="https://res.cloudinary.com/zagatti/image/upload/v1591463055/readme/ecoleta-android_qlflwp.gif" />
-  <img width="258" src="https://res.cloudinary.com/zagatti/image/upload/v1591461653/readme/ecoleta-iphone_yy8sdv.gif" />
+  <img width="250" src="https://res.cloudinary.com/zagatti/image/upload/v1591463055/readme/proffy-android_qlflwp.gif" />
+  <img width="258" src="https://res.cloudinary.com/zagatti/image/upload/v1591461653/readme/proffy-iphone_yy8sdv.gif" />
 </div> -->
 
 ## 🖥 Technologies
@@ -135,7 +135,7 @@ _If you decide to use npm don't forget to delete yarn.lock in folders_
 
 Then you can clone the repository.
 
-`git clone https://github.com/azagatti/ecoleta`
+`git clone https://github.com/azagatti/proffy`
 
 First start the application backend.
 
