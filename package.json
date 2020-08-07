@@ -13,6 +13,7 @@
   "scripts": {
     "start:web": "yarn workspace @proffy/web start",
     "start:server": "yarn workspace @proffy/server start",
+    "start:mobile": "yarn workspace @proffy/mobile start",
     "test": "jest",
     "test:coverage": "jest --coverage --watchAll=false",
     "test:watch": "jest --watch"
