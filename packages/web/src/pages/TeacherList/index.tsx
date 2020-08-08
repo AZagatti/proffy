@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, useCallback, FormEvent } from 'react';
-import api from '@proffy/axios-config';
+import apiFunc from '@proffy/axios-config';
 
 import PageHeader from '@components/PageHeader';
 import TeacherItem, { Teacher } from '@components/TeacherItem';
@@ -33,6 +33,7 @@ const TeacherList: React.FC = () => {
       e.preventDefault();
 
       try {
+        const api = apiFunc('web');
         const { data } = await api.get('classes', {
           params: {
             ...values,

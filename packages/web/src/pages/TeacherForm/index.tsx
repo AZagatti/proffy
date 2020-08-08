@@ -1,6 +1,6 @@
 import React, { useCallback, useState, ChangeEvent, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '@proffy/axios-config';
+import apiFunc from '@proffy/axios-config';
 
 import PageHeader from '@components/PageHeader';
 import Input from '@components/Input';
@@ -73,6 +73,7 @@ const TeacherForm: React.FC = () => {
       const { avatar, bio, cost, name, subject, whatsapp } = values;
 
       try {
+        const api = apiFunc('web');
         await api.post('classes', {
           name,
           avatar,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import api from '@proffy/axios-config';
+import apiFunc from '@proffy/axios-config';
 
 import logoImg from '@assets/images/logo.svg';
 import landingImg from '@assets/images/landing.svg';
@@ -17,6 +17,7 @@ const Landing: React.FC = () => {
   useEffect(() => {
     (async () => {
       try {
+        const api = apiFunc('web');
         const { data } = await api.get('connections');
 
         setTotalConnections(data.total);

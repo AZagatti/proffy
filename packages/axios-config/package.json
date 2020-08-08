@@ -1,7 +1,7 @@
 {
   "name": "@proffy/axios-config",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2"

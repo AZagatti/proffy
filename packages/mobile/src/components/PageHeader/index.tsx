@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Image } from 'react-native';
+import { Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import backIcon from '../../assets/images/icons/back.png';
@@ -10,9 +10,14 @@ import * as S from './styles';
 
 interface PageHeaderProps {
   title: string;
+  headerRight?: React.ReactNode;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({
+  title,
+  headerRight,
+  children,
+}) => {
   const { navigate } = useNavigation();
 
   const handleGoBack = useCallback(() => {
@@ -20,17 +25,23 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
   }, [navigate]);
 
   return (
-    <S.Container>
-      <S.TopBar>
-        <BorderlessButton onPress={handleGoBack}>
-          <Image source={backIcon} resizeMode="contain" />
-        </BorderlessButton>
+    <ScrollView bounces={false}>
+      <S.Container>
+        <S.TopBar>
+          <BorderlessButton onPress={handleGoBack}>
+            <Image source={backIcon} resizeMode="contain" />
+          </BorderlessButton>
 
-        <Image source={logoImg} resizeMode="contain" />
-      </S.TopBar>
+          <Image source={logoImg} resizeMode="contain" />
+        </S.TopBar>
 
-      <S.Title>{title}</S.Title>
-    </S.Container>
+        <S.Header>
+          <S.Title>{title}</S.Title>
+          {headerRight}
+        </S.Header>
+        {children}
+      </S.Container>
+    </ScrollView>
   );
 };
 

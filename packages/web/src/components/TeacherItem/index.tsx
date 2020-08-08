@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import api from '@proffy/axios-config';
+import apiFunc from '@proffy/axios-config';
 
 import whatsappIcon from '@assets/images/icons/whatsapp.svg';
 
@@ -22,6 +22,7 @@ interface TeacherItemProps {
 const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   const createNewConnection = useCallback(async () => {
     try {
+      const api = apiFunc('web');
       await api.post('connections', { user_id: teacher.id });
     } catch (err) {
       console.log(err);
